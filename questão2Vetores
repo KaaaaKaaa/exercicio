@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-    function readArrayA() {
+    function lerArrayA() {
         const arrayA = [];
         for (let i = 0; i < 10; i++) {
             const number = parseFloat(prompt(`Digite o número ${i + 1}:`));
@@ -18,7 +18,7 @@
     }
 
     function main() {
-        const arrayA = readArrayA();
+        const arrayA = lerArrayA();
         const X = parseFloat(prompt("Digite o valor de X:"));
         const arrayM = arrayA.map((number) => number * X);
         console.log("Array M:", arrayM);
