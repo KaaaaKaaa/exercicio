@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta nome="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 5</title>
+</head>
+<body>
+    <script>
+        function calcularIdade(anoNascimento, anoAtual) {
+      const idade = anoAtual - anoNascimento;
+      return idade;
+    }
+
+    const anoNascimento = prompt("Digite o ano de nascimento:");
+    const anoAtual = prompt("Digite o ano atual:");
+
+    const anoNascimentoInt = parseInt(anoNascimento);
+    const anoAtualInt = parseInt(anoAtual);
+
+    const idadeDaPessoa = calcularIdade(anoNascimentoInt, anoAtualInt);
+
+    alert("A idade da pessoa é: " + idadeDaPessoa);
+    </script>
+    
+</body>
+</html>
