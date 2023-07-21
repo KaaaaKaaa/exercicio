@@ -2,29 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>questao 2</title>
+    <title>q2</title>
 </head>
 <body>
     <script>
-    function lerArrayA() {
-        const arrayA = [];
-        for (let i = 0; i < 10; i++) {
-            const number = parseFloat(prompt(`Digite o número ${i + 1}:`));
-        arrayA.push(number);
-    }
-    return arrayA;
-    }
+        let arrayA=[]
 
-    function main() {
-        const arrayA = lerArrayA();
-        const X = parseFloat(prompt("Digite o valor de X:"));
-        const arrayM = arrayA.map((number) => number * X);
-        console.log("Array M:", arrayM);
-    }
-    main();
+        for (let i=0; i<10; i++){
+            arrayA[i]=prompt('Digite um valor: ' + (i+1))
+        }
+
+        v = prompt('Digite um multiplicado: ')
+
+        const mult = e => e * v
+
+        arrayM = arrayA.map(mult)
+
+        alert(arrayM)
     </script>
-    
 </body>
 </html>
