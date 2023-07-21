@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta nome="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 4</title>
+</head>
+<body>
+    <script>
+
+
+    function leiaclientees() {
+    const clientees = [];
+    while (true) {
+        const nome = prompt("Digite o nome do clientee (ou 'Fim' para encerrar):");
+     if (nome.toLowerCase() === "fim") {
+         break;
+        }
+        const idade = parseInt(prompt("Digite a idade do clientee:"));
+        clientes.push({ nome, idade });
+    }
+    return clientees;
+    }
+
+
+function classifiqueclientes(clientes) {
+  const preferencial = [];
+  const filaNormal = [];
+
+  clientes.forEach((cliente) => {
+    if (cliente.idade >= 60) {
+      preferencial.push(cliente.nome);
+    } else {
+      filaNormal.push(cliente.nome);
+    }
+  });
+
+  return { preferencial, filaNormal };
+}
+
+    function main() {
+
+  const clientes = leiaclientes();
+
+  const { preferencial, filaNormal } = classifiqueclientes(clientees);
+
+  console.log("---- Preferencial ----");
+  preferencial.forEach((nome, index) => {
+    console.log(`[${index + 1}] ${nome}`);
+  });
+
+  console.log("---- Fila Normal ----");
+  filaNormal.forEach((nome, index) => {
+    console.log(`[${index + 1}] ${nome}`);
+  });
+}
+
+    main();
+    </script>
+    
+</body>
+</html>
