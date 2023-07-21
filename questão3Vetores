@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    function readtemperaturas() {
+    const temperaturas = [];
+    for (let i = 1; i <= 7; i++) {
+        const temperatura = parseFloat(prompt(`Digite a temperatura média do dia ${i}:`));
+        temperaturas.push(temperatura);
+    }
+    return temperaturas;
+    }
+
+    function findMintemperatura(temperaturas) {
+        return temperaturas.reduce((min, current) => (current < min ? current : min), temperaturas[0]);
+    }
+
+    function findMaxtemperatura(temperaturas) {
+        return temperaturas.reduce((max, current) => (current > max ? current : max), temperaturas[0]);
+    }
+
+
+    function main() {
+ 
+    const temperaturas = readtemperaturas();
+
+ 
+    const mintemperatura = findMintemperatura(temperaturas);
+    const maxtemperatura = findMaxtemperatura(temperaturas);
+
+  
+    console.log("Menor temperatura da semana:", mintemperatura);
+    console.log("Maior temperatura da semana:", maxtemperatura);
+    }
+    main();
+    </script>
+    
+</body>
+</html>
