@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Lista de Bancos</h1>
+    <div id="bancos-list">
+        { id: 1, nome: 'Banco do Brasil' },
+        { id: 2, nome: 'JPMorgan Chase & Co.' },
+        { id: 3, nome: 'HSBC Holdings plc' },
+        { id: 4, nome: 'Deutsche Bank' },
+        { id: 5, nome: 'Mitsubishi UFJ Financial Group (MUFG)' }
+      
+    </div>
+
+    <h1>Informações do Banco</h1>
+    <div id="banco-info">
+        <input type="text" id="banco-id" placeholder="ID do Banco">
+        <button onclick="getBankInfo()">Obter Informações</button>
+        <div id="banco-info-result">
+            iformações do banco
+    </div>
+
+    <h1>Simulação de Financiamento</h1>
+    <div id="simulacao">
+        <input type="number" id="valor-desejado" placeholder="Valor Desejado">
+        <input type="number" id="num-parcelas" placeholder="Número de Parcelas">
+        <select id="banco-simulacao">
+            <option value="1">Banco do Brasil</option>
+            <option value="2">JPMorgan Chase & Co.</option>
+            <option value="3">HSBC Holdings plc</option>
+            <option value="4">Deutsche Bank</option>
+            <option value="5">Mitsubishi UFJ Financial Group (MUFG)</option>
+        </select>
+        <button onclick="simulateLoan()">Simular Financiamento</button>
+        <div id="simulacao-result">
+            informações financiamento
+        </div>
+    </div>
+
+    <script>
+        async function getBankInfo() {
+            const bancoId = document.getElementById("banco-id").value;
+            const response = await fetch(`/bancos/${bancoId}`);
+            const data = await response.json();
+            const bancoInfoResult = document.getElementById("banco-info-result");
+            bancoInfoResult.innerHTML = JSON.stringify(data);
+        }
+
+        async function simulateLoan() {
+            const valorDesejado = document.getElementById("valor-desejado").value;
+            const numParcelas = document.getElementById("num-parcelas").value;
+            const bancoId = document.getElementById("banco-simulacao").value;
+
+            const response = await fetch("/simular-financiamento", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    valorDesejado,
+                    numParcelas,
+                    bancoId,
+                }),
+            });
+
+            const data = await response.json();
+            const simulacaoResult = document.getElementById("simulacao-result");
+            simulacaoResult.innerHTML = JSON.stringify(data);
+        }
+    </script>
+</body>
+</html>
